@@ -1,0 +1,20 @@
+<map id="drivers/adc/ad463x/ad463x.c" name="drivers/adc/ad463x/ad463x.c">
+<area shape="rect" id="node1" title="Implementation of AD463x Driver." alt="" coords="742,5,889,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,393,76,420"/>
+<area shape="rect" id="node3" title=" " alt="" coords="859,169,926,196"/>
+<area shape="rect" id="node4" href="$error_8h.html" title="Error codes definition." alt="" coords="993,95,1057,121"/>
+<area shape="rect" id="node6" href="$delay_8h.html" title="Header file of Delay functions." alt="" coords="777,244,845,271"/>
+<area shape="rect" id="node8" href="$ad463x_8h.html" title="Header file of AD463x Driver." alt="" coords="545,95,627,121"/>
+<area shape="rect" id="node18" href="$print__log_8h.html" title="Print messages helpers." alt="" coords="878,95,969,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="991,169,1059,196"/>
+<area shape="rect" id="node7" title=" " alt="" coords="380,393,451,420"/>
+<area shape="rect" id="node9" href="$spi__engine_8h.html" title=" " alt="" coords="354,169,458,196"/>
+<area shape="rect" id="node14" href="$util_8h.html" title="Implementation of utility functions." alt="" coords="53,319,108,345"/>
+<area shape="rect" id="node15" href="$clk__axi__clkgen_8h.html" title="Driver for the Analog Devices AXI CLKGEN." alt="" coords="521,244,651,271"/>
+<area shape="rect" id="node16" href="$pwm_8h.html" title="Header file of PWM Interface." alt="" coords="133,319,199,345"/>
+<area shape="rect" id="node17" href="$gpio_8h.html" title="Header file of GPIO Interface." alt="" coords="601,319,664,345"/>
+<area shape="rect" id="node10" title=" " alt="" coords="401,244,496,271"/>
+<area shape="rect" id="node11" href="$spi__engine__private_8h.html" title=" " alt="" coords="169,244,326,271"/>
+<area shape="rect" id="node12" title=" " alt="" coords="125,393,207,420"/>
+<area shape="rect" id="node13" href="$spi_8h.html" title="Header file of SPI Interface." alt="" coords="325,319,378,345"/>
+</map>

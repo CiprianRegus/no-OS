@@ -1,0 +1,14 @@
+<map id="drivers/afe/ad4110/ad4110.c" name="drivers/afe/ad4110/ad4110.c">
+<area shape="rect" id="node1" title="Implementation of AD4110 Driver." alt="" coords="200,5,344,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,169,72,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="77,95,147,121"/>
+<area shape="rect" id="node4" href="$ad4110_8h.html" title="Header file of AD4110 Driver." alt="" coords="287,95,369,121"/>
+<area shape="rect" id="node9" href="$irq_8h.html" title="Header file of IRQ interface." alt="" coords="404,169,455,196"/>
+<area shape="rect" id="node10" href="$error_8h.html" title="Error codes definition." alt="" coords="468,95,532,121"/>
+<area shape="rect" id="node12" href="$print__log_8h.html" title="Print messages helpers." alt="" coords="172,95,263,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="235,244,306,271"/>
+<area shape="rect" id="node6" href="$delay_8h.html" title="Header file of Delay functions." alt="" coords="147,169,215,196"/>
+<area shape="rect" id="node7" href="$gpio_8h.html" title="Header file of GPIO Interface." alt="" coords="239,169,302,196"/>
+<area shape="rect" id="node8" href="$spi_8h.html" title="Header file of SPI Interface." alt="" coords="327,169,380,196"/>
+<area shape="rect" id="node11" title=" " alt="" coords="479,169,547,196"/>
+</map>
