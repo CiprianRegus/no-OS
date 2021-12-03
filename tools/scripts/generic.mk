@@ -90,7 +90,6 @@ get_relative_path = $(RELATIVE_PATH)
 get_full_path = $(FULL_PATH)
 endif
 
-relative_to_project = $(addprefix $(PROJECT_BUILD)/,$(call get_relative_path,$1))
 
 ifeq 'y' '$(strip $(LINK_SRCS))'
 file_fun = $(make_link)
@@ -130,6 +129,12 @@ OBJECTS_DIR		= $(BUILD_DIR)/objs
 PLATFORM_TOOLS	= $(NO-OS)/tools/scripts/platform/$(PLATFORM)
 BINARY			?= $(BUILD_DIR)/$(PROJECT_NAME).elf
 PROJECT_TARGET		= $(BUILD_DIR)/.project.target
+
+# New line variable
+define ENDL
+
+
+endef
 
 ifneq ($(words $(NO-OS)), 1)
 $(error $(ENDL)ERROR:$(ENDL)\
@@ -171,6 +176,10 @@ include $(NO-OS)/tools/scripts/aducm.mk
 endif
 
 ifeq 'stm32' '$(PLATFORM)'
+HARDWARE := $(filter %.ioc, $(HARDWARE))
+ifeq '' '$(HARDWARE)'
+$(error 'No HARDWARE for stm32 found. Add .ioc file.')
+endif
 include $(NO-OS)/tools/scripts/stm32.mk
 endif
 
@@ -220,6 +229,7 @@ SRC_DIRS := $(patsubst %/,%,$(SRC_DIRS))
 # Get all .c and .h files from SRC_DIRS
 SRCS     += $(foreach dir, $(SRC_DIRS), $(call rwildcard, $(dir),*.c))
 INCS     += $(foreach dir, $(SRC_DIRS), $(call rwildcard, $(dir),*.h))
+
 
 # Recursive ignored files. If a directory is in the variable IGNORED_FILES,
 # all files from inside the directory will be ignored

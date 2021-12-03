@@ -29,6 +29,8 @@ endif
 PLATFORM_RELATIVE_PATH = $1
 PLATFORM_FULL_PATH = $1
 
+relative_to_project = $(addprefix $(PROJECT_BUILD)/,$(call get_relative_path,$1))
+
 OBJECTS_DIR	= $(BUILD_DIR)/obj
 TEMP_DIR	= $(BUILD_DIR)/tmp
 BINARY		= $(BUILD_DIR)/$(PROJECT_NAME).elf
