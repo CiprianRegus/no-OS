@@ -3,11 +3,8 @@
 #include <stdlib.h>
 #include "mxc_sys.h"
 #include <errno.h>
-//#include "irq_x.h"
 #include "uart_maxim.h"
 #include "no_os_uart.h"
-
-#define BUFFER_SIZE 32000
 
 static void cb(uart_req_t *req, int error){
 	printf("done\n");   
@@ -30,7 +27,7 @@ int32_t uart_read(struct uart_desc *desc, uint8_t *data, uint32_t bytes_number)
 	uint32_t err = 0;
 	uint32_t bytes_read = 0;
 	
-	int32_t len = (bytes_number < BUFFER_SIZE) ? bytes_number : BUFFER_SIZE;
+	int32_t len = bytes_number;
 	err = UART_Read(MXC_UART_GET_UART(desc->device_id), data, len, &bytes_read);
 
 	if(err < 0)
@@ -53,7 +50,7 @@ int32_t uart_write(struct uart_desc *desc, const uint8_t *data,	uint32_t bytes_n
 	
 	uint32_t err = 0;
  
-	int32_t len = (bytes_number < BUFFER_SIZE) ? bytes_number : BUFFER_SIZE;
+	int32_t len = bytes_number;
 	err = UART_Write(MXC_UART_GET_UART(desc->device_id), data, len);
 	
 	if(err < 0)
@@ -78,7 +75,7 @@ int32_t uart_read_nonblocking(struct uart_desc *desc, uint8_t *data,  uint32_t b
 	uart_req_t read_req; 
 	
 	read_req.data	   = data;
-	read_req.len	= (bytes_number < BUFFER_SIZE) ? bytes_number : BUFFER_SIZE;
+	read_req.len	= bytes_number;
 	read_req.callback   = cb;
 	err = UART_ReadAsync(MXC_UART_GET_UART(desc->device_id), &read_req);	
 
@@ -93,7 +90,8 @@ int32_t uart_read_nonblocking(struct uart_desc *desc, uint8_t *data,  uint32_t b
  * @return SUCCESS in case of success, FAILURE otherwise.
  */
 
-int32_t uart_write_nonblocking(struct uart_desc *desc, const uint8_t *data, uint32_t bytes_number){
+int32_t uart_write_nonblocking(struct uart_desc *desc, const uint8_t *data, uint32_t bytes_number)
+{
 	if(!desc || !data || !bytes_number)
 		return -EINVAL;
 
@@ -101,7 +99,7 @@ int32_t uart_write_nonblocking(struct uart_desc *desc, const uint8_t *data, uint
 	uart_req_t write_req; 
 
 	write_req.data	   = data;
-	write_req.len		= (bytes_number < BUFFER_SIZE) ? bytes_number : BUFFER_SIZE;
+	write_req.len		= bytes_number;
 	write_req.callback   = cb;
 	err = UART_WriteAsync(MXC_UART_GET_UART(desc->device_id), &write_req);
 
@@ -124,9 +122,7 @@ int32_t uart_init(struct uart_desc **desc, struct uart_init_param *param)
  
 	struct maxim_uart_desc *maxim_uart = calloc(1, sizeof(struct maxim_uart_desc));
 	struct uart_desc *descriptor = calloc(1, sizeof(struct uart_desc));
-	//uart_cfg_t *maxim_desc = calloc(1, sizeof(uart_cfg_t));
-	//sys_cfg_uart_t *maxim_desc_sys = calloc(1, sizeof(sys_cfg_uart_t));
-	//uart_req_t *request_desc = calloc(1, sizeof(uart_req_t));	
+	
 	uart_cfg_t maxim_desc;
 	sys_cfg_uart_t maxim_desc_sys;
 
@@ -140,7 +136,6 @@ int32_t uart_init(struct uart_desc **desc, struct uart_init_param *param)
 	NVIC_SetPriority(MXC_UART_GET_IRQ(did), 1);
 	NVIC_EnableIRQ(MXC_UART_GET_IRQ(did));
 
-	//maxim_desc = (uart_cfg_t *)param->extra;
 	struct maxim_uart_init_param *extra_param = (struct maxim_uart_init_param *)param->extra;
 	maxim_desc.parity = extra_param->parity;
 	maxim_desc.size = 768;
@@ -148,10 +143,6 @@ int32_t uart_init(struct uart_desc **desc, struct uart_init_param *param)
 	maxim_desc.flow = extra_param->flow;
 	maxim_desc.pol = extra_param->pol;
 	maxim_desc.baud = param->baud_rate;
-
-	//maxim_uart->maxim_desc = maxim_desc;
-	//maxim_uart->request_descriptor = request_desc;
-	//maxim_uart->mode = extra_param->mode;
 
 	maxim_desc_sys.map = MAP_A;
 	maxim_desc_sys.flow_flag = UART_FLOW_DISABLE;
@@ -170,9 +161,6 @@ int32_t uart_init(struct uart_desc **desc, struct uart_init_param *param)
 	return 0;
 error:
 	free(descriptor);
-	//free(maxim_desc);
-	//free((sys_cfg_uart_t *)maxim_desc_sys);	
-	//free(request_desc);
 	free(maxim_uart);
 
 	return ret;
@@ -204,5 +192,4 @@ uint32_t uart_get_errors(struct uart_desc *desc)
 
 	return 0;
 }
-
 
