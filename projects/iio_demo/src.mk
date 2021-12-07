@@ -12,11 +12,11 @@ SRCS += $(DRIVERS)/adc/adc_demo/adc_demo.c \
 	$(DRIVERS)/dac/dac_demo/iio_dac_demo.c \
 	$(DRIVERS)/dac/dac_demo/dac_demo.c
 
-INCS += $(INCLUDE)/fifo.h \
-	$(INCLUDE)/uart.h \
-	$(INCLUDE)/list.h \
-	$(INCLUDE)/util.h \
-	$(INCLUDE)/error.h
+INCS += $(INCLUDE)/no_os_fifo.h \
+	$(INCLUDE)/no_os_uart.h \
+	$(INCLUDE)/no_os_list.h \
+	$(INCLUDE)/no_os_util.h \
+	$(INCLUDE)/no_os_error.h
 
 INCS += $(DRIVERS)/adc/adc_demo/iio_adc_demo.h \
 		$(DRIVERS)/dac/dac_demo/dac_demo.h \
@@ -27,7 +27,7 @@ ifeq ($(PLATFORM),$(filter $(PLATFORM),xilinx aducm3029))
 SRCS += $(PLATFORM_DRIVERS)/delay.c \
 	$(DRIVERS)/irq/irq.c
 endif
-INCS += $(INCLUDE)/delay.h
+INCS += $(INCLUDE)/no_os_delay.h
 
 ifeq ($(PLATFORM),$(filter $(PLATFORM),xilinx aducm3029))
 # For the moment there is support only for aducm for iio with network backend
@@ -43,8 +43,8 @@ DISABLE_SECURE_SOCKET ?= y
 SRC_DIRS += $(NO-OS)/network
 SRCS	 += $(NO-OS)/util/circular_buffer.c
 SRCS	 += $(PLATFORM_DRIVERS)/timer.c
-INCS	 += $(INCLUDE)/timer.h \
-		$(INCLUDE)/circular_buffer.h \
+INCS	 += $(INCLUDE)/no_os_timer.h \
+		$(INCLUDE)/no_os_circular_buffer.h \
 		$(PLATFORM_DRIVERS)/timer_extra.h \
 		$(PLATFORM_DRIVERS)/rtc_extra.h
 endif
@@ -52,9 +52,9 @@ endif
 SRCS += $(PLATFORM_DRIVERS)/uart.c \
 		$(PLATFORM_DRIVERS)/$(PLATFORM)_irq.c
 
-INCS += $(INCLUDE)/irq.h \
-	$(INCLUDE)/rtc.h \
-	$(INCLUDE)/gpio.h \
+INCS += $(INCLUDE)/no_os_irq.h \
+	$(INCLUDE)/no_os_rtc.h \
+	$(INCLUDE)/no_os_gpio.h \
 	$(PLATFORM_DRIVERS)/irq_extra.h \
 	$(PLATFORM_DRIVERS)/uart_extra.h
 endif
@@ -78,7 +78,7 @@ SRCS += $(PLATFORM_DRIVERS)/stm32_delay.c \
 ASM_SRCS = $(PROJECT)/src/startup/startup_stm32f446retx.s
 
 INCS += $(PROJECT)/src/hal/stm32/main.h \
-	$(INCLUDE)/delay.h \
+	$(INCLUDE)/no_os_delay.h \
 	$(PLATFORM_DRIVERS)/stm32_uart_stdio.h \
 	$(PROJECT)/src/hal/stm32/stm32f4xx_hal_conf.h \
 	$(PROJECT)/src/hal/stm32/stm32f4xx_it.h \
@@ -95,31 +95,31 @@ ifeq (maxim, $(PLATFORM))
 
 SRCS += $(PLATFORM_DRIVERS)/uart_maxim.c 	\
 	$(PLATFORM_DRIVERS)/stdio.c			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/uart_maxim_pdriver.c 	\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/uart_maxim_pdriver.c 	\
 	$(PLATFORM_DRIVERS)/delay_maxim.c 	\
 	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Source/heap.c	 \
-	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Source/system_max32660.c	 	\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_delay.c			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_pins.c			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_lock.c			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/gpio.c			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_sys.c	 	
+	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Source/system_max32660.c	 	
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_delay.c			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_pins.c			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_lock.c			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/gpio.c			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_sys.c	 	
 
 INCS += $(PLATFORM_DRIVERS)/uart_maxim.h			\
 	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/uart_maxim_pdriver.h			\
 	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Include/max32660.h	 \
 	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Include/mxc_device.h	 \
 	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Include/system_max32660.h	 \
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_config.h			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_errors.h			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_assert.h			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_lock.h			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_pins.h			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/rtc.h			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_delay.h			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/gpio.h			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/dma.h			\
-	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_sys.h	
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_config.h			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_errors.h			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_assert.h			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_lock.h			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_pins.h			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/rtc.h			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_delay.h			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/gpio.h			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/dma.h			\
+#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_sys.h	
 
 ASM_SRCS = $(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Source/GCC/startup_max32660.S
 
@@ -145,15 +145,15 @@ INCS += $(NO-OS)/network/tcp_socket.h \
 		$(NO-OS)/network/noos_mbedtls_config.h \
 		$(NO-OS)/network/linux_socket/linux_socket.h
 
-INCS	 += $(INCLUDE)/circular_buffer.h
+INCS	 += $(INCLUDE)/no_os_circular_buffer.h
 INCS += $(PROJECT)/src/app/app_config.h \
 		$(PROJECT)/src/app/parameters.h	
 
 INCS += $(NO-OS)/iio/iio_app/iio_app.h 
 
-INCS += $(INCLUDE)/gpio.h \
-		$(INCLUDE)/delay.h \
-		$(INCLUDE)/irq.h \
-		$(INCLUDE)/trng.h
+INCS += $(INCLUDE)/no_os_gpio.h \
+		$(INCLUDE)/no_os_delay.h \
+		$(INCLUDE)/no_os_irq.h \
+		$(INCLUDE)/no_os_trng.h
 
 endif
