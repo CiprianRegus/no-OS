@@ -14,3 +14,4 @@ struct maxim_uart_init_param {
 	uart_flow_ctrl_t flow;	
 	uart_flow_pol_t pol;
 };
+

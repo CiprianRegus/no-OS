@@ -3,7 +3,7 @@
 # PLATFORM = altera
 # PLATFORM = aducm3029
 # PLATFORM = stm32
-PLATFORM = maxim
+# PLATFORM = maxim
 
 TINYIIOD=y
 
