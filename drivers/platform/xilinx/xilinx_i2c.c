@@ -51,10 +51,10 @@
 #include <xiicps.h>
 #endif
 
-#include "no_os_error.h"
-#include "no_os_i2c.h"
+#include "no_os/error.h"
+#include "no_os/i2c.h"
 #include "i2c_extra.h"
-#include "no_os_list.h"
+#include "no_os/list.h"
 
 /******************************************************************************/
 /*************************** Types Declarations *******************************/

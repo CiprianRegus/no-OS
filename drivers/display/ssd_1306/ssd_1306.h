@@ -46,7 +46,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "display.h"
-#include "no_os_gpio.h"
+#include "no_os/gpio.h"
 
 /******************************************************************************/
 /*************************** Types Declarations *******************************/

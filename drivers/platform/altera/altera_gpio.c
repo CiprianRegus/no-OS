@@ -43,9 +43,9 @@
 
 #include <stdlib.h>
 #include <altera_avalon_spi_regs.h>
-#include "no_os_gpio.h"
+#include "no_os/gpio.h"
 #include "gpio_extra.h"
-#include "no_os_error.h"
+#include "no_os/error.h"
 #include "parameters.h"
 
 /******************************************************************************/

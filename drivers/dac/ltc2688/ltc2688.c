@@ -42,7 +42,7 @@
 /******************************************************************************/
 #include <stdlib.h>
 #include <stdio.h>
-#include "no_os_error.h"
+#include "no_os/error.h"
 
 #include "ltc2688.h" /* LTC2688 definitions. */
 

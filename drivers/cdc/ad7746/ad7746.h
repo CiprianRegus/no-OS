@@ -42,8 +42,8 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "no_os_util.h"
-#include "no_os_i2c.h"
+#include "no_os/util.h"
+#include "no_os/i2c.h"
 
 /* AD7746 Slave Address */
 #define AD7746_ADDRESS			0x48

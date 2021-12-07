@@ -41,13 +41,13 @@
 /***************************** Include Files **********************************/
 /******************************************************************************/
 
-#include "no_os_spi.h"
+#include "no_os/spi.h"
 #include "spi_extra.h"
 #include "adxrs290.h"
 #include "iio_adxrs290.h"
 #include "app_config.h"
 #include "parameters.h"
-#include "no_os_error.h"
+#include "no_os/error.h"
 #include "iio_app.h"
 #include "platform_init.h"
 #include "aducm3029_gpio.h"

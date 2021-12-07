@@ -42,9 +42,9 @@
 /******************************************************************************/
 #include <stdint.h>
 #include <stdlib.h>
-#include "no_os_spi.h"
-#include "no_os_i2c.h"
-#include "no_os_error.h"
+#include "no_os/spi.h"
+#include "no_os/i2c.h"
+#include "no_os/error.h"
 #include "adt7420.h"
 
 const struct adt7420_chip_info chip_info[] = {

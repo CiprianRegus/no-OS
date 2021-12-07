@@ -43,8 +43,8 @@
 
 #include <stdlib.h>
 #include "adpd188.h"
-#include "no_os_error.h"
-#include "no_os_delay.h"
+#include "no_os/error.h"
+#include "no_os/delay.h"
 
 /******************************************************************************/
 /************************ Functions Definitions *******************************/

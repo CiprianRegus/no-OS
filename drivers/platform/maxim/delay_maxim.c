@@ -1,4 +1,4 @@
-#include "no_os_delay.h"
+#include "no_os/delay.h"
 #include "mxc_delay.h"
 
 void udelay(uint32_t usecs)

@@ -43,7 +43,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "display.h"
-#include "no_os_error.h"
+#include "no_os/error.h"
 
 /******************************************************************************/
 /************************** Functions Implementation **************************/

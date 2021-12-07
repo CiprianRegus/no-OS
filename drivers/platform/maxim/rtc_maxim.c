@@ -1,4 +1,4 @@
-#include "no_os_rtc.h"
+#include "no_os/rtc.h"
 #include "rtc.h"
 #include "errno.h"
 

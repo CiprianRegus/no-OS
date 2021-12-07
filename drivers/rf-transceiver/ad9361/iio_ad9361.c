@@ -45,10 +45,10 @@
 #include <inttypes.h>
 #include <string.h>
 #include <errno.h>
-#include "no_os_error.h"
+#include "no_os/error.h"
 #include "iio_ad9361.h"
 #include "ad9361_api.h"
-#include "no_os_util.h"
+#include "no_os/util.h"
 
 /******************************************************************************/
 /*************************** Types Declarations *******************************/

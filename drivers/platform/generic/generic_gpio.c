@@ -41,9 +41,9 @@
 /******************************************************************************/
 
 #include <stdint.h>
-#include "no_os_error.h"
-#include "no_os_util.h"
-#include "no_os_gpio.h"
+#include "no_os/error.h"
+#include "no_os/util.h"
+#include "no_os/gpio.h"
 
 /******************************************************************************/
 /************************ Functions Definitions *******************************/

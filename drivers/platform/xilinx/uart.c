@@ -35,12 +35,12 @@
 #include <xparameters.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "no_os_error.h"
-#include "no_os_uart.h"
+#include "no_os/error.h"
+#include "no_os/uart.h"
 #include "uart_extra.h"
 #ifdef XPAR_XUARTPS_NUM_INSTANCES
-#include "no_os_irq.h"
-#include "no_os_fifo.h"
+#include "no_os/irq.h"
+#include "no_os/fifo.h"
 #include <xil_exception.h>
 #include <xuartps.h>
 #endif

@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stdlib.h>
-#include "no_os_irq.h"
+#include "no_os/irq.h"
 #include "irq_maxim_extra.h"
 
 static struct callback_desc *irq_callback_desc;

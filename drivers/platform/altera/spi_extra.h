@@ -39,7 +39,7 @@
 #ifndef SPI_EXTRA_H_
 #define SPI_EXTRA_H_
 
-#include "no_os_spi.h"
+#include "no_os/spi.h"
 
 /******************************************************************************/
 /*************************** Types Declarations *******************************/

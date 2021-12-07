@@ -44,8 +44,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <inttypes.h>
-#include "no_os_util.h"
-#include "no_os_error.h"
+#include "no_os/util.h"
+#include "no_os/error.h"
 #include "axi_adxcvr.h"
 #include "xilinx_transceiver.h"
 

@@ -43,10 +43,10 @@
 
 #include <drivers/uart/adi_uart.h>
 #include <stdlib.h>
-#include "no_os_uart.h"
-#include "no_os_irq.h"
+#include "no_os/uart.h"
+#include "no_os/irq.h"
 #include "uart_extra.h"
-#include "no_os_util.h"
+#include "no_os/util.h"
 
 /******************************************************************************/
 /*************************** Types Declarations *******************************/

@@ -43,9 +43,9 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "no_os_error.h"
+#include "no_os/error.h"
 #include "ad9656.h"
-#include "no_os_delay.h"
+#include "no_os/delay.h"
 
 /**
  * @brief Reads from the ad9656 that is contected to the SPI

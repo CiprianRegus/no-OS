@@ -44,8 +44,8 @@
 #include <stdbool.h>
 #include <inttypes.h>
 #include <stdio.h>
-#include "no_os_error.h"
-#include "no_os_util.h"
+#include "no_os/error.h"
+#include "no_os/util.h"
 #include "adf4371.h"
 
 /******************************************************************************/

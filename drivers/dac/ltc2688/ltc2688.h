@@ -39,9 +39,9 @@
 #ifndef __LTC2688_H__
 #define __LTC2688_H__
 
-#include "no_os_spi.h"
-#include "no_os_util.h"
-#include "no_os_delay.h"
+#include "no_os/spi.h"
+#include "no_os/util.h"
+#include "no_os/delay.h"
 #include "errno.h"
 
 /******************************************************************************/

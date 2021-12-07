@@ -41,17 +41,17 @@
 /************************* Include Files **************************************/
 /******************************************************************************/
 
-#include "no_os_irq.h"
+#include "no_os/irq.h"
 #include "irq_extra.h"
-#include "no_os_error.h"
+#include "no_os/error.h"
 #include <stdlib.h>
-#include "no_os_uart.h"
+#include "no_os/uart.h"
 #include "uart_extra.h"
-#include "no_os_rtc.h"
+#include "no_os/rtc.h"
 #include "rtc_extra.h"
-#include "no_os_gpio.h"
+#include "no_os/gpio.h"
 #include <drivers/gpio/adi_gpio.h>
-#include "no_os_util.h"
+#include "no_os/util.h"
 
 /******************************************************************************/
 /********************** Macros and Constants Definitions **********************/

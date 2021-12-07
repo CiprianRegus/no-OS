@@ -3,8 +3,9 @@
 #include <stdlib.h>
 #include "mxc_sys.h"
 #include <errno.h>
+#include "uart.h"
 #include "uart_maxim.h"
-#include "no_os_uart.h"
+#include "no_os/uart.h"
 
 static void cb(uart_req_t *req, int error){
 	printf("done\n");   

@@ -49,7 +49,7 @@
 #include "mxc_config.h"
 #include "mxc_sys.h"
 #include "board.h"
-//#include "no_os_uart.h"
+//#include "no_os/uart.h"
 #include "uart_x.h"
 #include "uart_maxim.h"
 

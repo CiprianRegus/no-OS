@@ -41,10 +41,10 @@
 /***************************** Include Files **********************************/
 /******************************************************************************/
 #include <stdlib.h>
-#include "no_os_error.h"
+#include "no_os/error.h"
 #include "adi_cms_api_common.h"
-#include "no_os_util.h"
-#include "no_os_delay.h"
+#include "no_os/util.h"
+#include "no_os/delay.h"
 #include "adi_ad9081_hal.h"
 #include "ad9081.h"
 

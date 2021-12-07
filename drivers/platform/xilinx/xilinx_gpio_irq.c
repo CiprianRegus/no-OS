@@ -43,11 +43,11 @@
 
 #include <stdlib.h>
 #include "xparameters.h"
-#include "no_os_error.h"
+#include "no_os/error.h"
 #include "gpio_irq_extra.h"
-#include "no_os_util.h"
-#include "no_os_list.h"
-#include "no_os_irq.h"
+#include "no_os/util.h"
+#include "no_os/list.h"
+#include "no_os/irq.h"
 
 /******************************************************************************/
 /************************ Functions Definitions *******************************/

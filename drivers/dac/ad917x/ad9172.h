@@ -40,9 +40,9 @@
 #define __AD9172_H__
 
 #include "AD917x.h"
-#include "no_os_delay.h"
-#include "no_os_gpio.h"
-#include "no_os_spi.h"
+#include "no_os/delay.h"
+#include "no_os/gpio.h"
+#include "no_os/spi.h"
 
 typedef struct ad9172_dev {
 	/* SPI */

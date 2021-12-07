@@ -45,10 +45,10 @@
 #include <stdio.h>
 #include <inttypes.h>
 #include <math.h>
-#include "no_os_error.h"
+#include "no_os/error.h"
 #include "iio.h"
 #include "iio_ad7124.h"
-#include "no_os_util.h"
+#include "no_os/util.h"
 #include "ad7124.h"
 
 /******************************************************************************/

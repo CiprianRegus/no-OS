@@ -48,10 +48,10 @@
 #include "iio_ad7746.h"
 #include "iio_app.h"
 #include "ad7746.h"
-#include "no_os_i2c.h"
+#include "no_os/i2c.h"
 #include "i2c_extra.h"
-#include "no_os_delay.h"
-#include "no_os_print_log.h"
+#include "no_os/delay.h"
+#include "no_os/print_log.h"
 #include "platform_init.h"
 #include "parameters.h"
 
