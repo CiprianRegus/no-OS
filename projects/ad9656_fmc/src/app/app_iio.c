@@ -41,13 +41,13 @@
 /***************************** Include Files **********************************/
 /******************************************************************************/
 
-#include "error.h"
-#include "uart.h"
+#include "no_os_error.h"
+#include "no_os_uart.h"
 #include "uart_extra.h"
 #include "parameters.h"
 #include "app_iio.h"
 #include "iio.h"
-#include "irq.h"
+#include "no_os_irq.h"
 #include "irq_extra.h"
 
 /******************************************************************************/

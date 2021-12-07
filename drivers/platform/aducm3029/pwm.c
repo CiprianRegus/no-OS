@@ -37,9 +37,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *******************************************************************************/
 
-#include "pwm.h"
+#include "no_os_pwm.h"
 #include "stdlib.h"
-#include "error.h"
+#include "no_os_error.h"
 #include <drivers/tmr/adi_tmr.h>
 #include <drivers/pwr/adi_pwr.h>
 

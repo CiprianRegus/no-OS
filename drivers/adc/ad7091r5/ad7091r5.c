@@ -44,9 +44,9 @@
 #include <string.h>
 #include <errno.h>
 #include "stdlib.h"
-#include "error.h"
-#include "delay.h"
-#include "util.h"
+#include "no_os_error.h"
+#include "no_os_delay.h"
+#include "no_os_util.h"
 
 /******************************************************************************/
 /************************** Functions Implementation **************************/

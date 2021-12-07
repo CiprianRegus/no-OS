@@ -45,13 +45,13 @@
 #include <stdlib.h>
 #include "ad9083.h"
 #include "adi_ad9083_hal.h"
-#include "error.h"
+#include "no_os_error.h"
 #include <inttypes.h>
-#include "delay.h"
-#include "clk.h"
+#include "no_os_delay.h"
+#include "no_os_clk.h"
 #include "uc_settings.h"
-#include "util.h"
-#include "print_log.h"
+#include "no_os_util.h"
+#include "no_os_print_log.h"
 
 /******************************************************************************/
 /*************************** Types Declarations *******************************/

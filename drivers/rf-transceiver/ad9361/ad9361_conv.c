@@ -43,7 +43,7 @@
 #include <inttypes.h>
 #include <string.h>
 #include "ad9361.h"
-#include "delay.h"
+#include "no_os_delay.h"
 #include "ad9361_util.h"
 #include "axi_adc_core.h"
 #include "app_config.h"

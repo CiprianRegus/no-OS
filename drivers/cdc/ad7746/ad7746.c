@@ -39,8 +39,8 @@
  */
 #include <stdlib.h>
 #include <string.h>
-#include "error.h"
-#include "delay.h"
+#include "no_os_error.h"
+#include "no_os_delay.h"
 #include "ad7746.h"
 
 /***************************************************************************//**

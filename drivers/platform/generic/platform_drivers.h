@@ -43,10 +43,10 @@
 /******************************************************************************/
 /***************************** Include Files **********************************/
 /******************************************************************************/
-#include "delay.h"
-#include "error.h"
-#include "gpio.h"
-#include "i2c.h"
-#include "spi.h"
+#include "no_os_delay.h"
+#include "no_os_error.h"
+#include "no_os_gpio.h"
+#include "no_os_i2c.h"
+#include "no_os_spi.h"
 
 #endif // PLATFORM_DRIVERS_H_

@@ -5,7 +5,7 @@
 #include <errno.h>
 //#include "irq_x.h"
 #include "uart_maxim.h"
-#include "uart.h"
+#include "no_os_uart.h"
 
 #define BUFFER_SIZE 32000
 

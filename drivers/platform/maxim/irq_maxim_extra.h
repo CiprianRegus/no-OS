@@ -2,7 +2,7 @@
 #define IRQ_MAXIM_EXTRA_H
 
 
-#include "irq.h"
+#include "no_os_irq.h"
 #include "max32660.h"
 
 enum irq_id{

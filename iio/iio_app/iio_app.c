@@ -43,12 +43,12 @@
 #include "iio.h"
 #include "iio_app.h"
 #include "parameters.h"
-#include "uart.h"
-#include "delay.h"
+#include "no_os_uart.h"
+#include "no_os_delay.h"
 #include <stdio.h>
 
 #if defined(ADUCM_PLATFORM) || defined(XILINX_PLATFORM)
-#include "irq.h"
+#include "no_os_irq.h"
 #include "irq_extra.h"
 #include "uart_extra.h"
 #endif
@@ -251,7 +251,7 @@ static int32_t uart_setup(struct uart_desc **uart_desc,
 		.baud_rate = UART_BAUDRATE_DEFAULT,
 		.size = UART_CS_8,
 		.parity = UART_PAR_NO,
-		.stop = UART_STOP_1,
+		.stop = UART_STOP_1_BIT,
 		.extra = &platform_uart_init_par
 	};
 	*uart_init_par = &luart_par;

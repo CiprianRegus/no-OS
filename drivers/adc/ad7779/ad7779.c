@@ -43,7 +43,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ad7779.h"
-#include "error.h"
+#include "no_os_error.h"
 
 /******************************************************************************/
 /*************************** Constants Definitions ****************************/

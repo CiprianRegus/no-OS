@@ -48,16 +48,16 @@
 #include "iio_types.h"
 #include "ctype.h"
 #include "tinyiiod.h"
-#include "util.h"
-#include "list.h"
-#include "error.h"
-#include "uart.h"
+#include "no_os_util.h"
+#include "no_os_list.h"
+#include "no_os_error.h"
+#include "no_os_uart.h"
 #include <inttypes.h>
 
 #ifdef ENABLE_IIO_NETWORK
-#include "delay.h"
+#include "no_os_delay.h"
 #include "tcp_socket.h"
-#include "circular_buffer.h"
+#include "no_os_circular_buffer.h"
 #endif
 
 /******************************************************************************/

@@ -44,9 +44,9 @@
 /******************************************************************************/
 #include <stdbool.h>
 #include <stdint.h>
-#include "clk.h"
-#include "spi.h"
-#include "gpio.h"
+#include "no_os_clk.h"
+#include "no_os_spi.h"
+#include "no_os_gpio.h"
 #include "adi_ad9081.h"
 
 /******************************************************************************/

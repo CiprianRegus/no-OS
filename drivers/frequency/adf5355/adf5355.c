@@ -42,10 +42,10 @@
 /******************************************************************************/
 #include <inttypes.h>
 #include <stdio.h>
-#include "error.h"
+#include "no_os_error.h"
 #include <malloc.h>
-#include "delay.h"
-#include "util.h"
+#include "no_os_delay.h"
+#include "no_os_util.h"
 #include "adf5355.h"
 
 /******************************************************************************/

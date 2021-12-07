@@ -44,11 +44,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <inttypes.h>
-#include "util.h"
-#include "error.h"
-#include "delay.h"
+#include "no_os_util.h"
+#include "no_os_error.h"
+#include "no_os_delay.h"
 #include "clk_axi_clkgen.h"
-#include "axi_io.h"
+#include "no_os_axi_io.h"
 
 /******************************************************************************/
 /********************** Macros and Constants Definitions **********************/

@@ -36,18 +36,18 @@ SRCS += $(PLATFORM_DRIVERS)/xilinx_gpio.c \
 	$(DRIVERS)/axi_core/axi_dac_core/axi_dac_core.c \
 	$(DRIVERS)/axi_core/axi_dmac/axi_dmac.c \
 	$(PLATFORM_DRIVERS)/axi_io.c
-INCS +=	$(INCLUDE)/spi.h \
+INCS +=	$(INCLUDE)/no_os_spi.h \
 	$(PLATFORM_DRIVERS)/spi_extra.h \
-	$(INCLUDE)/gpio.h \
+	$(INCLUDE)/no_os_gpio.h \
 	$(PLATFORM_DRIVERS)/gpio_extra.h \
-	$(INCLUDE)/error.h \
-	$(INCLUDE)/delay.h \
-	$(INCLUDE)/util.h \
-	$(INCLUDE)/print_log.h \
+	$(INCLUDE)/no_os_error.h \
+	$(INCLUDE)/no_os_delay.h \
+	$(INCLUDE)/no_os_util.h \
+	$(INCLUDE)/no_os_print_log.h \
 	$(DRIVERS)/axi_core/axi_adc_core/axi_adc_core.h \
 	$(DRIVERS)/axi_core/axi_dac_core/axi_dac_core.h \
 	$(DRIVERS)/axi_core/axi_dmac/axi_dmac.h \
-	$(INCLUDE)/axi_io.h
+	$(INCLUDE)/no_os_axi_io.h
 
 # Navassa API sources
 SRC_DIRS += $(DRIVERS)/rf-transceiver/navassa
@@ -64,12 +64,12 @@ SRCS += $(PROJECT)/src/app/app_iio.c \
 	$(DRIVERS)/axi_core/iio_axi_dac/iio_axi_dac.c \
 	$(DRIVERS)/api/irq.c
 INCS += $(PROJECT)/src/app/app_iio.h \
-	$(INCLUDE)/uart.h \
-	$(INCLUDE)/irq.h \
+	$(INCLUDE)/no_os_uart.h \
+	$(INCLUDE)/no_os_irq.h \
 	$(PLATFORM_DRIVERS)/irq_extra.h \
 	$(PLATFORM_DRIVERS)/uart_extra.h \
-	$(INCLUDE)/fifo.h \
-	$(INCLUDE)/list.h \
+	$(INCLUDE)/no_os_fifo.h \
+	$(INCLUDE)/no_os_list.h \
 	$(DRIVERS)/axi_core/iio_axi_adc/iio_axi_adc.h \
 	$(DRIVERS)/axi_core/iio_axi_dac/iio_axi_dac.h
 endif

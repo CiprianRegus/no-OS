@@ -36,13 +36,13 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *******************************************************************************/
-#include "error.h"
-#include "uart.h"
+#include "no_os_error.h"
+#include "no_os_uart.h"
 #include "uart_extra.h"
 #include "iio.h"
 #include "parameters.h"
 #include "app_iio.h"
-#include "irq.h"
+#include "no_os_irq.h"
 #include "irq_extra.h"
 
 

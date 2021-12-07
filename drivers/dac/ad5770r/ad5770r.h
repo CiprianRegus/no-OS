@@ -45,8 +45,8 @@
 /******************************************************************************/
 #include <stdint.h>
 #include <stdbool.h>
-#include "spi.h"
-#include "gpio.h"
+#include "no_os_spi.h"
+#include "no_os_gpio.h"
 
 /******************************************************************************/
 /********************** Macros and Constants Definitions **********************/

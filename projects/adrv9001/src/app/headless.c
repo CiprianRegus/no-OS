@@ -42,9 +42,9 @@
 
 #include "xil_cache.h"
 
-#include "error.h"
-#include "util.h"
-#include "spi.h"
+#include "no_os_error.h"
+#include "no_os_util.h"
+#include "no_os_spi.h"
 
 #include "axi_adc_core.h"
 #include "axi_dac_core.h"

@@ -41,14 +41,14 @@
 /***************************** Include Files **********************************/
 /******************************************************************************/
 #include <xparameters.h>
-#include "spi.h"
+#include "no_os_spi.h"
 #include "spi_extra.h"
-#include "gpio.h"
+#include "no_os_gpio.h"
 #include "gpio_extra.h"
-#include "error.h"
+#include "no_os_error.h"
 #include "adf5902.h"
 #include "parameters.h"
-#include "util.h"
+#include "no_os_util.h"
 
 #ifdef IIO_SUPPORT
 #include "iio_app.h"
@@ -56,7 +56,7 @@
 #endif
 
 #define LOG_LEVEL 6
-#include "print_log.h"
+#include "no_os_print_log.h"
 
 int main(void)
 {

@@ -42,10 +42,10 @@
 /******************************************************************************/
 #include <stdlib.h>
 #include <stdio.h>
-#include "error.h"
-#include "delay.h"
+#include "no_os_error.h"
+#include "no_os_delay.h"
 #include "ad463x.h"
-#include "print_log.h"
+#include "no_os_print_log.h"
 
 /******************************************************************************/
 /********************** Macros and Constants Definitions **********************/

@@ -44,10 +44,10 @@
 /******************************************************************************/
 #include <stdint.h>
 #include "spi_engine.h"
-#include "util.h"
+#include "no_os_util.h"
 #include "clk_axi_clkgen.h"
-#include "pwm.h"
-#include "gpio.h"
+#include "no_os_pwm.h"
+#include "no_os_gpio.h"
 
 /******************************************************************************/
 /********************** Macros and Types Declarations *************************/

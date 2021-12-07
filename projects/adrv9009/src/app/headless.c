@@ -12,13 +12,13 @@
 
 #include <stdio.h>
 #include "adi_hal.h"
-#include "spi.h"
+#include "no_os_spi.h"
 #include "spi_extra.h"
 #include "gpio_extra.h"
-#include "error.h"
-#include "delay.h"
+#include "no_os_error.h"
+#include "no_os_delay.h"
 #include "parameters.h"
-#include "util.h"
+#include "no_os_util.h"
 #include "axi_dac_core.h"
 #include "axi_adc_core.h"
 #include "axi_dmac.h"

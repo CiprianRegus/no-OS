@@ -46,10 +46,10 @@
 /****************************** Include Files ********************************/
 /*****************************************************************************/
 #include <stdint.h>
-#include "delay.h"
-#include "gpio.h"
-#include "spi.h"
-#include "i2c.h"
+#include "no_os_delay.h"
+#include "no_os_gpio.h"
+#include "no_os_spi.h"
+#include "no_os_i2c.h"
 
 /*****************************************************************************/
 /*  Device specific MACROs                                                   */

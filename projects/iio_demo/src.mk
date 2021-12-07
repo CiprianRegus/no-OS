@@ -95,21 +95,21 @@ ifeq (maxim, $(PLATFORM))
 
 SRCS += $(PLATFORM_DRIVERS)/uart_maxim.c 	\
 	$(PLATFORM_DRIVERS)/stdio.c			\
-#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/uart_maxim_pdriver.c 	\
+	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/uart.c 	\
 	$(PLATFORM_DRIVERS)/delay_maxim.c 	\
 	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Source/heap.c	 \
-	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Source/system_max32660.c	 	
-#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_delay.c			\
-#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_pins.c			\
-#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_lock.c			\
-#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/gpio.c			\
-#	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_sys.c	 	
+	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Source/system_max32660.c	 \
+	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_delay.c			\
+	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_pins.c			\
+	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_lock.c			\
+	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/gpio.c			\
+	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Source/mxc_sys.c	 	
 
 INCS += $(PLATFORM_DRIVERS)/uart_maxim.h			\
 	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/uart_maxim_pdriver.h			\
 	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Include/max32660.h	 \
 	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Include/mxc_device.h	 \
-	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Include/system_max32660.h	 \
+	$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Include/system_max32660.h	 #\
 #	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_config.h			\
 #	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_errors.h			\
 #	$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include/mxc_assert.h			\

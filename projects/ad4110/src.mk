@@ -29,11 +29,11 @@ INCS +=	$(PLATFORM_DRIVERS)/spi_extra.h \
 	$(PLATFORM_DRIVERS)/gpio_extra.h \
 	$(PLATFORM_DRIVERS)/gpio_irq_extra.h
 
-INCS += $(INCLUDE)/spi.h \
-	$(INCLUDE)/gpio.h \
-	$(INCLUDE)/error.h \
-	$(INCLUDE)/delay.h \
-	$(INCLUDE)/irq.h \
-	$(INCLUDE)/util.h \
-	$(INCLUDE)/print_log.h \
-	$(INCLUDE)/list.h
+INCS += $(INCLUDE)/no_os_spi.h \
+	$(INCLUDE)/no_os_gpio.h \
+	$(INCLUDE)/no_os_error.h \
+	$(INCLUDE)/no_os_delay.h \
+	$(INCLUDE)/no_os_irq.h \
+	$(INCLUDE)/no_os_util.h \
+	$(INCLUDE)/no_os_print_log.h \
+	$(INCLUDE)/no_os_list.h

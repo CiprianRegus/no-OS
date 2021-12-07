@@ -46,8 +46,8 @@
 #include <inttypes.h>
 #include "iio_types.h"
 #include "dac_demo.h"
-#include "error.h"
-#include "util.h"
+#include "no_os_error.h"
+#include "no_os_util.h"
 
 /******************************************************************************/
 /************************ Functions Definitions *******************************/

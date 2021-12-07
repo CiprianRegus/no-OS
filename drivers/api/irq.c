@@ -38,9 +38,9 @@
 *******************************************************************************/
 
 #include <inttypes.h>
-#include "irq.h"
+#include "no_os_irq.h"
 #include <stdlib.h>
-#include "error.h"
+#include "no_os_error.h"
 
 /**
  * @brief Initialize the IRQ interrupts.

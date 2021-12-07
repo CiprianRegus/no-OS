@@ -43,15 +43,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "spi.h"
+#include "no_os_spi.h"
 #include "spi_extra.h"
-#include "gpio.h"
+#include "no_os_gpio.h"
 #include "gpio_extra.h"
-#include "error.h"
+#include "no_os_error.h"
 #include "app_ad9083.h"
 #include "app_clocking.h"
 #include "inttypes.h"
-#include "print_log.h"
+#include "no_os_print_log.h"
 #include "parameters.h"
 #include "uc_settings.h"
 

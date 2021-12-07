@@ -94,6 +94,7 @@ CFLAGS=-mthumb                                                                 \
 
 CFLAGS += -I$(MAXIM_LIBRARIES)/CMSIS/Include	\
 	-I$(MAXIM_LIBRARIES)/CMSIS/Device/Maxim/MAX32660/Include	\
+	-I$(MAXIM_LIBRARIES)/MAX32660PeriphDriver/Include	\
 	-I$(MAXIM_LIBRARIES)/Boards/EvKit_V1/Include		
 
 CFLAGS += -DTARGET_REV=$(TARGET_REV) \

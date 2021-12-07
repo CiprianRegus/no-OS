@@ -40,16 +40,16 @@ INCS += $(DRIVERS)/axi_core/axi_adc_core/axi_adc_core.h \
 	$(DRIVERS)/adc/ad9467/ad9467.h \
 	$(DRIVERS)/frequency/ad9517/ad9517.h
 INCS +=	$(PLATFORM_DRIVERS)/spi_extra.h
-INCS +=	$(INCLUDE)/axi_io.h \
-	$(INCLUDE)/spi.h \
-	$(INCLUDE)/error.h \
-	$(INCLUDE)/delay.h \
-	$(INCLUDE)/util.h
+INCS +=	$(INCLUDE)/no_os_axi_io.h \
+	$(INCLUDE)/no_os_spi.h \
+	$(INCLUDE)/no_os_error.h \
+	$(INCLUDE)/no_os_delay.h \
+	$(INCLUDE)/no_os_util.h
 ifeq (y,$(strip $(TINYIIOD)))
-INCS +=	$(INCLUDE)/fifo.h \
-	$(INCLUDE)/irq.h \
-	$(INCLUDE)/uart.h \
-	$(INCLUDE)/list.h \
+INCS +=	$(INCLUDE)/no_os_fifo.h \
+	$(INCLUDE)/no_os_irq.h \
+	$(INCLUDE)/no_os_uart.h \
+	$(INCLUDE)/no_os_list.h \
 	$(PLATFORM_DRIVERS)/irq_extra.h \
 	$(PLATFORM_DRIVERS)/uart_extra.h \
 	$(DRIVERS)/axi_core/iio_axi_adc/iio_axi_adc.h

@@ -45,9 +45,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "circular_buffer.h"
-#include "error.h"
-#include "util.h"
+#include "no_os_circular_buffer.h"
+#include "no_os_error.h"
+#include "no_os_util.h"
 
 /******************************************************************************/
 /*************************** Types Declarations *******************************/

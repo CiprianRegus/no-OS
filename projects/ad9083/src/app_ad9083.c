@@ -46,13 +46,13 @@
 #include "app_ad9083.h"
 #include "adi_ad9083_bf_jtx_ip.h"
 #include "parameters.h"
-#include "spi.h"
+#include "no_os_spi.h"
 #include "spi_extra.h"
 #include "gpio_extra.h"
-#include "error.h"
-#include "util.h"
-#include "delay.h"
-#include "print_log.h"
+#include "no_os_error.h"
+#include "no_os_util.h"
+#include "no_os_delay.h"
+#include "no_os_print_log.h"
 
 /******************************************************************************/
 /************************ Functions Definitions *******************************/

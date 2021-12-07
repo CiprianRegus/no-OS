@@ -46,9 +46,9 @@
 
 #include <stdlib.h>
 #include <stdbool.h>
-#include "gpio.h"
-#include "spi.h"
-#include "util.h"
+#include "no_os_gpio.h"
+#include "no_os_spi.h"
+#include "no_os_util.h"
 
 /******************************************************************************/
 /********************** Macros and Constants Definitions **********************/

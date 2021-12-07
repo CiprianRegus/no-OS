@@ -47,9 +47,9 @@
 #include "Mykonos_M3.h"
 #include "mykonos_gpio.h"
 #include "parameters.h"
-#include "util.h"
-#include "error.h"
-#include "delay.h"
+#include "no_os_util.h"
+#include "no_os_error.h"
+#include "no_os_delay.h"
 #ifdef ALTERA_PLATFORM
 #include "clk_altera_a10_fpll.h"
 #include "altera_adxcvr.h"

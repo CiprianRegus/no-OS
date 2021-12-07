@@ -45,9 +45,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ad4110.h"
-#include "error.h"
-#include "irq.h"
-#include "print_log.h"
+#include "no_os_error.h"
+#include "no_os_irq.h"
+#include "no_os_print_log.h"
 
 /******************************************************************************/
 /************************** Functions Implementation **************************/

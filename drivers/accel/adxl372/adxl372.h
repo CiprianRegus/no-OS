@@ -44,11 +44,11 @@
 /***************************** Include Files **********************************/
 /******************************************************************************/
 #include <stdint.h>
-#include "util.h"
-#include "delay.h"
-#include "gpio.h"
-#include "i2c.h"
-#include "spi.h"
+#include "no_os_util.h"
+#include "no_os_delay.h"
+#include "no_os_gpio.h"
+#include "no_os_i2c.h"
+#include "no_os_spi.h"
 
 /******************************************************************************/
 /********************** Macros and Constants Definitions **********************/

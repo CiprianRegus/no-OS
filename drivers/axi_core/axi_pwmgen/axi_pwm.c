@@ -41,11 +41,11 @@
 /***************************** Include Files **********************************/
 /******************************************************************************/
 #include <stdlib.h>
-#include "pwm.h"
+#include "no_os_pwm.h"
 #include "axi_pwm_extra.h"
-#include "axi_io.h"
-#include "util.h"
-#include "error.h"
+#include "no_os_axi_io.h"
+#include "no_os_util.h"
+#include "no_os_error.h"
 
 /******************************************************************************/
 /********************** Macros and Constants Definitions **********************/

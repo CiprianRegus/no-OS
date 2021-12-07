@@ -4,9 +4,9 @@
 * This software is proprietary and confidential to Analog Devices, Inc. and its licensors.    *
 *                                                                                             *
 ***********************************************************************************************/
-#include "timer.h"
+#include "no_os_timer.h"
 #include "wrapper.h"
-#include "i2c.h"
+#include "no_os_i2c.h"
 #include "tx_lib.h"
 #include "tx_isr.h"
 

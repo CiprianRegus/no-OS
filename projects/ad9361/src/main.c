@@ -44,15 +44,15 @@
 #include "app_config.h"
 #include "ad9361_api.h"
 #include "parameters.h"
-#include "spi.h"
-#include "gpio.h"
-#include "delay.h"
+#include "no_os_spi.h"
+#include "no_os_gpio.h"
+#include "no_os_delay.h"
 #ifdef XILINX_PLATFORM
 #include <xparameters.h>
 #include <xil_cache.h>
 #include "spi_extra.h"
 #include "gpio_extra.h"
-#include "irq.h"
+#include "no_os_irq.h"
 #endif
 #ifdef LINUX_PLATFORM
 #include "linux_spi.h"
@@ -64,14 +64,14 @@
 #include "axi_adc_core.h"
 #include "axi_dac_core.h"
 #include "axi_dmac.h"
-#include "error.h"
+#include "no_os_error.h"
 
 #ifdef IIO_SUPPORT
 
 #include "iio_axi_adc.h"
 #include "iio_axi_dac.h"
 #include "iio_ad9361.h"
-#include "uart.h"
+#include "no_os_uart.h"
 #include "iio_app.h"
 
 #ifdef XILINX_PLATFORM

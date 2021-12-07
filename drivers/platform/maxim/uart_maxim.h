@@ -1,4 +1,4 @@
-#include "uart_maxim_pdriver.h"
+#include "uart.h"
 
 struct maxim_uart_desc{
 	uint32_t mode;	// rx or tx

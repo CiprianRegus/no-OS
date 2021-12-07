@@ -43,8 +43,8 @@
 /***************************** Include Files **********************************/
 /******************************************************************************/
 #include <stdint.h>
-#include "spi.h"
-#include "gpio.h"
+#include "no_os_spi.h"
+#include "no_os_gpio.h"
 
 /* Status Word */
 #define STATUS_SPI_READY  (0x1 << 7)

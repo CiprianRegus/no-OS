@@ -45,10 +45,10 @@
 #include <sys/platform.h>
 
 #include "adi_initialize.h"
-#include "flash.h"
-#include "irq.h"
+#include "no_os_flash.h"
+#include "no_os_irq.h"
 #include "platform_init.h"
-#include "uart.h"
+#include "no_os_uart.h"
 #include "uart_extra.h"
 #include "uart_stdio.h"
 
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 		.device_id = 0,
 		.parity = UART_PAR_NO,
 		.size = UART_CS_8,
-		.stop = UART_STOP_1,
+		.stop = UART_STOP_1BIT,
 		.extra = &aducm_uart_init
 	};
 	struct irq_ctrl_desc *irq_dut;

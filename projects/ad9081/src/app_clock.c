@@ -40,15 +40,15 @@
 /******************************************************************************/
 /***************************** Include Files **********************************/
 /******************************************************************************/
-#include "spi.h"
+#include "no_os_spi.h"
 #include "spi_extra.h"
 #include "hmc7044.h"
 #ifdef QUAD_MXFE
 #include "adf4371.h"
-#include "gpio.h"
+#include "no_os_gpio.h"
 #include "gpio_extra.h"
 #endif
-#include "error.h"
+#include "no_os_error.h"
 #include "parameters.h"
 #include "app_clock.h"
 

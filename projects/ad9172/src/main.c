@@ -49,13 +49,13 @@
 #include "axi_dac_core.h"
 #include "parameters.h"
 #include "inttypes.h"
-#include "error.h"
+#include "no_os_error.h"
 #include <xparameters.h>
 #include <xil_cache.h>
 #include "app_config.h"
-#include "spi.h"
+#include "no_os_spi.h"
 #include "spi_extra.h"
-#include "gpio.h"
+#include "no_os_gpio.h"
 #include "gpio_extra.h"
 
 #ifdef DAC_DMA_EXAMPLE

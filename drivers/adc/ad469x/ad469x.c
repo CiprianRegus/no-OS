@@ -45,9 +45,9 @@
 #include "stdlib.h"
 #include "ad469x.h"
 #include "spi_engine.h"
-#include "delay.h"
-#include "error.h"
-#include "util.h"
+#include "no_os_delay.h"
+#include "no_os_error.h"
+#include "no_os_util.h"
 
 /******************************************************************************/
 /********************** Macros and Constants Definitions **********************/

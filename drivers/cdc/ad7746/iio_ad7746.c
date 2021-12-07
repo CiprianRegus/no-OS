@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <inttypes.h>
 #include <math.h>
-#include "error.h"
-#include "delay.h"
+#include "no_os_error.h"
+#include "no_os_delay.h"
 #include "iio.h"
 #include "iio_ad7746.h"
-#include "util.h"
+#include "no_os_util.h"
 #include "ad7746.h"
 
 static int32_t _ad7746_read_register2(struct ad7746_iio_dev *dev, uint32_t reg,

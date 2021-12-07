@@ -46,9 +46,9 @@
 /***************************** Include Files *********************************/
 /*****************************************************************************/
 #include <stdint.h>
-#include "gpio.h"
-#include "spi.h"
-#include "i2c.h"
+#include "no_os_gpio.h"
+#include "no_os_spi.h"
+#include "no_os_i2c.h"
 
 /* Control Bits */
 #define AD5686_CTRL_NOP          0

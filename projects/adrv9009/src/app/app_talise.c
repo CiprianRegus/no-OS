@@ -43,9 +43,9 @@
 #include <stdbool.h>
 
 // platform drivers
-#include "error.h"
-#include "delay.h"
-#include "util.h"
+#include "no_os_error.h"
+#include "no_os_delay.h"
+#include "no_os_util.h"
 
 // talise
 #include "talise.h"
