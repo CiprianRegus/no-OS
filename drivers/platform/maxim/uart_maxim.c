@@ -177,7 +177,6 @@ int32_t uart_remove(struct uart_desc *desc)
 
 	struct maxim_uart_desc *maxim_uart = (struct maxim_uart_desc *)desc->extra;
 	free(maxim_uart->maxim_desc);
-	free(maxim_uart->request_descriptor);
 	free(desc->extra);
 	free(desc->callback);
 	free(desc);

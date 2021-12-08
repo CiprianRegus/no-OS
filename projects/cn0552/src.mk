@@ -13,17 +13,17 @@ SRCS += $(NO-OS)/util/util.c \
 	$(DRIVERS)/api/i2c.c \
 	$(PROJECT)/src/app/headless.c
 
-INCS +=	$(INCLUDE)/no_os_uart.h \
-	$(INCLUDE)/no_os_util.h \
-	$(INCLUDE)/no_os_list.h \
-	$(INCLUDE)/no_os_delay.h \
-	$(INCLUDE)/no_os_timer.h \
-	$(INCLUDE)/no_os_error.h \
-	$(INCLUDE)/no_os_irq.h \
-	$(INCLUDE)/no_os_gpio.h \
-	$(INCLUDE)/no_os_rtc.h \
-	$(INCLUDE)/no_os_i2c.h \
-	$(INCLUDE)/no_os_print_log.h \
+INCS +=	$(INCLUDE)/no_os/uart.h \
+	$(INCLUDE)/no_os/util.h \
+	$(INCLUDE)/no_os/list.h \
+	$(INCLUDE)/no_os/delay.h \
+	$(INCLUDE)/no_os/timer.h \
+	$(INCLUDE)/no_os/error.h \
+	$(INCLUDE)/no_os/irq.h \
+	$(INCLUDE)/no_os/gpio.h \
+	$(INCLUDE)/no_os/rtc.h \
+	$(INCLUDE)/no_os/i2c.h \
+	$(INCLUDE)/no_os/print_log.h \
 	$(PLATFORM_DRIVERS)/irq_extra.h \
 	$(PLATFORM_DRIVERS)/timer_extra.h \
 	$(PLATFORM_DRIVERS)/uart_extra.h \

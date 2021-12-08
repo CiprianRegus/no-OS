@@ -22,7 +22,8 @@ int32_t gpio_get(struct gpio_desc **desc,
 	descriptor->number = param->number;
 	descriptor->platform_ops = &gpio_ops;
 	descriptor->extra = (gpio_cfg_t *)param->extra;
-
+	
+	GPIO_Config((gpio_cfg_t *)param->extra);
 	*desc = descriptor;
 
 	return 0;
@@ -115,10 +116,10 @@ int32_t gpio_set_value(struct gpio_desc *desc, uint8_t value)
 	
 	switch(value) {
 	case GPIO_LOW:
-		GPIO_OutSet(maxim_extra);
+		GPIO_OutClr(maxim_extra);
 		break;
 	case GPIO_HIGH:
-		GPIO_OutClr(maxim_extra);
+		GPIO_OutSet(maxim_extra);
 		break;
 	case GPIO_HIGH_Z:
 		gpio_regs->en &= ~maxim_extra->mask;
@@ -135,7 +136,7 @@ int32_t gpio_get_value(struct gpio_desc *desc, uint8_t *value)
 		return -EINVAL;
 	
 	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
-	if(maxim_extra)
+	if(!maxim_extra)
 		return -EINVAL;
 
 	if(maxim_extra->func == GPIO_FUNC_IN)

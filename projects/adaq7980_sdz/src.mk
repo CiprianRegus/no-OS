@@ -33,12 +33,12 @@ INCS +=	$(PLATFORM_DRIVERS)/spi_extra.h \
 	$(PLATFORM_DRIVERS)/irq_extra.h \
 	$(PLATFORM_DRIVERS)/uart_extra.h \
 	$(PLATFORM_DRIVERS)/gpio_extra.h
-INCS +=	$(INCLUDE)/no_os_axi_io.h \
-	$(INCLUDE)/no_os_spi.h \
-	$(INCLUDE)/no_os_pwm.h \
-	$(INCLUDE)/no_os_gpio.h \
-	$(INCLUDE)/no_os_error.h \
-	$(INCLUDE)/no_os_delay.h \
-	$(INCLUDE)/no_os_irq.h \
-	$(INCLUDE)/no_os_uart.h \
-	$(INCLUDE)/no_os_util.h
+INCS +=	$(INCLUDE)/no_os/axi_io.h \
+	$(INCLUDE)/no_os/spi.h \
+	$(INCLUDE)/no_os/pwm.h \
+	$(INCLUDE)/no_os/gpio.h \
+	$(INCLUDE)/no_os/error.h \
+	$(INCLUDE)/no_os/delay.h \
+	$(INCLUDE)/no_os/irq.h \
+	$(INCLUDE)/no_os/uart.h \
+	$(INCLUDE)/no_os/util.h

@@ -51,16 +51,16 @@ INCS +=	$(PLATFORM_DRIVERS)/spi_extra.h \
 	$(PLATFORM_DRIVERS)/i2c_extra.h \
 	$(PLATFORM_DRIVERS)/irq_extra.h \
 	$(PLATFORM_DRIVERS)/timer_extra.h
-INCS +=	$(INCLUDE)/no_os_axi_io.h \
-	$(INCLUDE)/no_os_spi.h \
-	$(INCLUDE)/no_os_gpio.h \
-	$(INCLUDE)/no_os_error.h \
-	$(INCLUDE)/no_os_delay.h \
-	$(INCLUDE)/no_os_util.h \
-	$(INCLUDE)/no_os_list.h \
-	$(INCLUDE)/no_os_i2c.h \
-	$(INCLUDE)/no_os_irq.h \
-	$(INCLUDE)/no_os_timer.h
+INCS +=	$(INCLUDE)/no_os/axi_io.h \
+	$(INCLUDE)/no_os/spi.h \
+	$(INCLUDE)/no_os/gpio.h \
+	$(INCLUDE)/no_os/error.h \
+	$(INCLUDE)/no_os/delay.h \
+	$(INCLUDE)/no_os/util.h \
+	$(INCLUDE)/no_os/list.h \
+	$(INCLUDE)/no_os/i2c.h \
+	$(INCLUDE)/no_os/irq.h \
+	$(INCLUDE)/no_os/timer.h
 INCS +=	$(PROJECT)/TX/tx_lib.h \
 	$(PROJECT)/TX/HAL/COMMON/tx_cfg.h \
 	$(PROJECT)/TX/HAL/COMMON/tx_hal.h \

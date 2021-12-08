@@ -62,17 +62,17 @@ INCS += $(DRIVERS)/axi_core/axi_adc_core/axi_adc_core.h \
 	$(DRIVERS)/dac/ad9144/ad9144.h					
 INCS +=	$(PLATFORM_DRIVERS)/spi_extra.h \
 	$(PLATFORM_DRIVERS)/gpio_extra.h
-INCS +=	$(INCLUDE)/no_os_axi_io.h \
-	$(INCLUDE)/no_os_spi.h \
-	$(INCLUDE)/no_os_gpio.h \
-	$(INCLUDE)/no_os_error.h \
-	$(INCLUDE)/no_os_delay.h \
-	$(INCLUDE)/no_os_util.h
+INCS +=	$(INCLUDE)/no_os/axi_io.h \
+	$(INCLUDE)/no_os/spi.h \
+	$(INCLUDE)/no_os/gpio.h \
+	$(INCLUDE)/no_os/error.h \
+	$(INCLUDE)/no_os/delay.h \
+	$(INCLUDE)/no_os/util.h
 ifeq (y,$(strip $(TINYIIOD)))
-INCS += $(INCLUDE)/no_os_fifo.h \
-	$(INCLUDE)/no_os_irq.h \
-	$(INCLUDE)/no_os_uart.h \
-	$(INCLUDE)/no_os_list.h \
+INCS += $(INCLUDE)/no_os/fifo.h \
+	$(INCLUDE)/no_os/irq.h \
+	$(INCLUDE)/no_os/uart.h \
+	$(INCLUDE)/no_os/list.h \
 	$(PLATFORM_DRIVERS)/irq_extra.h \
 	$(PLATFORM_DRIVERS)/uart_extra.h \
 	$(DRIVERS)/axi_core/iio_axi_adc/iio_axi_adc.h \
