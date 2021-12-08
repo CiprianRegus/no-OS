@@ -1,6 +1,9 @@
+#include <stdlib.h>
+#include <errno.h>
 #include "no_os/rtc.h"
 #include "rtc.h"
-#include "errno.h"
+#include "rtc_extra.h"
+#include "rtc_regs.h"
 
 /**
  * @brief Initialize the RTC peripheral.
@@ -11,35 +14,35 @@
 int32_t rtc_init(struct rtc_desc **device, struct rtc_init_param *init_param)
 {
 	int32_t ret = 0;
-	struct rtc_desc *dev;	
+	struct rtc_desc *dev;
 	sys_cfg_rtc_t sys_cfg;
-	struct rtc_desc_maxim *rtc_maxim = (struct rtc_desc_maxim *)init_param->extra;	
 
 	if(!init_param)
 		return -EINVAL;
-	
+
+	struct rtc_init_maxim *rtc_maxim = (struct rtc_init_maxim *)init_param->extra;
 	dev = (struct rtc_desc *)calloc(1, sizeof(dev));
 	if(!dev)
 		return -ENOMEM;
-	
+
 	dev->id = init_param->id;
 	dev->freq = init_param->freq;
 	dev->load = init_param->load;
 	dev->extra = rtc_maxim;
 
 	sys_cfg.tmr = MXC_TMR0;
-	if(RTC_Init(MXC_RTC, dev->load, rtc_maxim->ms_load, &sys_cfg) != E_NO_ERROR){
+	if(RTC_Init(MXC_RTC, dev->load, rtc_maxim->ms_load, &sys_cfg) != E_NO_ERROR) {
 		ret = -1;
 		goto error;
 	}
-	
-	*device = dev;	
+
+	*device = dev;
 
 	return 0;
 
 error:
 	free(dev);
-	
+
 	return ret;
 }
 
@@ -49,7 +52,7 @@ error:
  * @return 0 in case of success, errno codes otherwise.
  */
 int32_t rtc_remove(struct rtc_desc *dev)
-{	
+{
 	free(dev);
 	return 0;
 }
@@ -60,17 +63,17 @@ int32_t rtc_remove(struct rtc_desc *dev)
  * @return 0 in case of success, errno codes otherwise.
  */
 int32_t rtc_start(struct rtc_desc *dev)
-{	
+{
 	uint32_t temp_cnt;
 	struct rtc_desc_maxim *rtc_maxim = (struct rtc_desc_maxim *)dev->extra;
-	
+
 	if(!dev)
 		return -EINVAL;
-	
+
 	if(RTC_CheckBusy())
 		return -EBUSY;
 	rtc_maxim->rtc_regs->ctrl |= MXC_F_RTC_CTRL_RTCE;
-	
+
 	return 0;
 }
 
@@ -80,17 +83,17 @@ int32_t rtc_start(struct rtc_desc *dev)
  * @return 0 in case of success, errno codes otherwise.
  */
 int32_t rtc_stop(struct rtc_desc *dev)
-{	
+{
 	uint32_t temp_cnt;
 	struct rtc_desc_maxim *rtc_maxim = (struct rtc_desc_maxim *)dev->extra;
-	
+
 	if(!dev)
 		return -EINVAL;
-	
+
 	if(RTC_CheckBusy())
 		return -EBUSY;
 	rtc_maxim->rtc_regs->ctrl &= ~MXC_F_RTC_CTRL_RTCE;
-	
+
 	return 0;
 }
 
@@ -104,19 +107,19 @@ int32_t rtc_get_cnt(struct rtc_desc *dev, uint32_t *tmr_cnt)
 {
 	uint32_t temp_cnt;
 	struct rtc_desc_maxim *rtc_maxim = (struct rtc_desc_maxim *)dev->extra;
-	
-	if(!dev)
-		return -EINVAL;	
 
-	do{
+	if(!dev)
+		return -EINVAL;
+
+	do {
 		if(!(rtc_maxim->rtc_regs->ctrl & MXC_F_RTC_CTRL_RDY))
 			return -EBUSY;
 		temp_cnt = RTC_GetSecond();
 		if(!(rtc_maxim->rtc_regs->ctrl & MXC_F_RTC_CTRL_RDY))
 			return -EBUSY;
-		*tmr_cnt = RTC_GetSecond();		
+		*tmr_cnt = RTC_GetSecond();
 
-	}while(temp_cnt != *tmr_cnt);
+	} while(temp_cnt != *tmr_cnt);
 
 	return 0;
 }
@@ -130,12 +133,12 @@ int32_t rtc_get_cnt(struct rtc_desc *dev, uint32_t *tmr_cnt)
 int32_t rtc_set_cnt(struct rtc_desc *dev, uint32_t tmr_cnt)
 {
 	struct rtc_desc_maxim *rtc_maxim = (struct rtc_desc_maxim *)dev->extra;
-	
+
 	if(!dev)
 		return -EINVAL;
 
 	rtc_maxim->rtc_regs->ctrl |= MXC_F_RTC_CTRL_WE;
-	rtc_maxim->sec = tmr_cnt;
+	rtc_maxim->rtc_regs->sec = tmr_cnt;
 	if(RTC_CheckBusy())
 		return -EBUSY;
 	rtc_maxim->rtc_regs->ctrl &= ~MXC_F_RTC_CTRL_WE;

@@ -7,12 +7,6 @@
 #include "uart_maxim.h"
 #include "no_os/uart.h"
 
-static void cb(uart_req_t *req, int error){
-	printf("done\n");   
-	fflush(stdout); 
-}
-
-
 /**
  * @brief Read data from UART device. Blocking function.
  * @param desc - Instance of UART.
@@ -23,11 +17,11 @@ static void cb(uart_req_t *req, int error){
 int32_t uart_read(struct uart_desc *desc, uint8_t *data, uint32_t bytes_number)
 {
 	if(!desc || !data || !bytes_number)
-  		return -EINVAL;
-	
-	uint32_t err = 0;
+		return -EINVAL;
+
+	int32_t err = 0;
 	uint32_t bytes_read = 0;
-	
+
 	int32_t len = bytes_number;
 	err = UART_Read(MXC_UART_GET_UART(desc->device_id), data, len, &bytes_read);
 
@@ -44,16 +38,17 @@ int32_t uart_read(struct uart_desc *desc, uint8_t *data, uint32_t bytes_number)
  * @param bytes_number - Number of bytes to read.
  * @return SUCCESS in case of success, FAILURE otherwise.
  */
-int32_t uart_write(struct uart_desc *desc, const uint8_t *data,	uint32_t bytes_number)
+int32_t uart_write(struct uart_desc *desc, const uint8_t *data,
+		   uint32_t bytes_number)
 {
 	if(!desc || !data || !bytes_number)
 		return -EINVAL;
-	
+
 	uint32_t err = 0;
- 
+
 	int32_t len = bytes_number;
 	err = UART_Write(MXC_UART_GET_UART(desc->device_id), data, len);
-	
+
 	if(err < 0)
 		return -EIO;
 
@@ -67,18 +62,19 @@ int32_t uart_write(struct uart_desc *desc, const uint8_t *data,	uint32_t bytes_n
  * @param bytes_number - Number of bytes to read.
  * @return positive number of received bytes in case of success, negative error code otherwise.
  */
-int32_t uart_read_nonblocking(struct uart_desc *desc, uint8_t *data,  uint32_t bytes_number)
+int32_t uart_read_nonblocking(struct uart_desc *desc, uint8_t *data,
+			      uint32_t bytes_number)
 {
 	if(!desc || !data || !bytes_number)
 		return -EINVAL;
 
 	uint32_t err = 0;
-	uart_req_t read_req; 
-	
-	read_req.data	   = data;
-	read_req.len	= bytes_number;
-	read_req.callback   = cb;
-	err = UART_ReadAsync(MXC_UART_GET_UART(desc->device_id), &read_req);	
+	uart_req_t read_req;
+
+	read_req.data = data;
+	read_req.len = bytes_number;
+	read_req.callback = NULL;
+	err = UART_ReadAsync(MXC_UART_GET_UART(desc->device_id), &read_req);
 
 	return err;
 }
@@ -91,17 +87,18 @@ int32_t uart_read_nonblocking(struct uart_desc *desc, uint8_t *data,  uint32_t b
  * @return SUCCESS in case of success, FAILURE otherwise.
  */
 
-int32_t uart_write_nonblocking(struct uart_desc *desc, const uint8_t *data, uint32_t bytes_number)
+int32_t uart_write_nonblocking(struct uart_desc *desc, const uint8_t *data,
+			       uint32_t bytes_number)
 {
 	if(!desc || !data || !bytes_number)
 		return -EINVAL;
 
 	uint32_t err = 0;
-	uart_req_t write_req; 
+	uart_req_t write_req;
 
-	write_req.data	   = data;
-	write_req.len		= bytes_number;
-	write_req.callback   = cb;
+	write_req.data = data;
+	write_req.len = bytes_number;
+	write_req.callback = NULL;
 	err = UART_WriteAsync(MXC_UART_GET_UART(desc->device_id), &write_req);
 
 	return err;
@@ -117,18 +114,18 @@ int32_t uart_init(struct uart_desc **desc, struct uart_init_param *param)
 {
 	if(!param || !desc)
 		return -EINVAL;
-	
+
 	int ret = 0;
 	uint32_t did = param->device_id;
- 
+
 	struct maxim_uart_desc *maxim_uart = calloc(1, sizeof(struct maxim_uart_desc));
 	struct uart_desc *descriptor = calloc(1, sizeof(struct uart_desc));
-	
+
 	uart_cfg_t maxim_desc;
 	sys_cfg_uart_t maxim_desc_sys;
 
-	if(!maxim_uart || !descriptor){
-		ret = -ENOMEM;   
+	if(!maxim_uart || !descriptor) {
+		ret = -ENOMEM;
 		goto error;
 	}
 
@@ -137,7 +134,8 @@ int32_t uart_init(struct uart_desc **desc, struct uart_init_param *param)
 	NVIC_SetPriority(MXC_UART_GET_IRQ(did), 1);
 	NVIC_EnableIRQ(MXC_UART_GET_IRQ(did));
 
-	struct maxim_uart_init_param *extra_param = (struct maxim_uart_init_param *)param->extra;
+	struct maxim_uart_init_param *extra_param = (struct maxim_uart_init_param *)
+			param->extra;
 	maxim_desc.parity = extra_param->parity;
 	maxim_desc.size = 768;
 	maxim_desc.stop = extra_param->stop;
@@ -153,11 +151,11 @@ int32_t uart_init(struct uart_desc **desc, struct uart_init_param *param)
 	descriptor->device_id = param->device_id;
 
 	uint32_t err = UART_Init(MXC_UART_GET_UART(did), &maxim_desc, &maxim_desc_sys);
-	if(err != E_NO_ERROR){
+	if(err != E_NO_ERROR) {
 		ret = -EIO;
 		goto error;
 	}
-	
+
 	*desc = descriptor;
 	return 0;
 error:

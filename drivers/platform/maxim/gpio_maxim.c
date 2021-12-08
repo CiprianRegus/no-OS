@@ -1,6 +1,12 @@
+#include <errno.h>
+#include <stdlib.h>
 #include "no_os/gpio.h"
 #include "gpio.h"
 #include "gpio_regs.h"
+#include "gpio_extra.h"
+#include "max32660.h"
+
+struct gpio_platform_ops gpio_ops;
 
 int32_t gpio_get(struct gpio_desc **desc,
 		 const struct gpio_init_param *param)
@@ -8,15 +14,16 @@ int32_t gpio_get(struct gpio_desc **desc,
 	if(!param || param->number >= N_PINS)
 		return -EINVAL;
 
-	struct gpio_desc *descriptor = (struct gpio_desc *)calloc(1, sizeof(*descriptor));
+	struct gpio_desc *descriptor = (struct gpio_desc *)calloc(1,
+				       sizeof(*descriptor));
 	if(!(*desc))
 		return -ENOMEM;
 
 	descriptor->number = param->number;
-	descriptor->platform_ops = &gpio_platform_ops;
+	descriptor->platform_ops = &gpio_ops;
 	descriptor->extra = (gpio_cfg_t *)param->extra;
-	
-	*desc = descriptor;	
+
+	*desc = descriptor;
 
 	return 0;
 }
@@ -24,11 +31,11 @@ int32_t gpio_get(struct gpio_desc **desc,
 int32_t gpio_get_optional(struct gpio_desc **desc,
 			  const struct gpio_init_param *param)
 {
-	if(param == NULL){
+	if(param == NULL) {
 		*desc = NULL;
 		return 0;
 	}
-	
+
 	return gpio_get(desc, param);
 }
 
@@ -41,30 +48,35 @@ int32_t gpio_remove(struct gpio_desc *desc)
 }
 
 int32_t gpio_direction_input(struct gpio_desc *desc)
-{	
-	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
+{
+	if(!desc)
+		return -EINVAL;
 	
-	if(!desc || !maxim_extra || maxim_extra->port >= N_PORTS)
+	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
+
+	if(!maxim_extra || maxim_extra->port >= N_PORTS)
 		return -EINVAL;
 
 	maxim_extra->mask = (uint32_t)(1UL << desc->number);
 	maxim_extra->func = GPIO_FUNC_IN;
 	GPIO_Config(maxim_extra);
-	
+
 	return 0;
 }
 
 int32_t gpio_direction_output(struct gpio_desc *desc, uint8_t value)
-{	
-	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
+{
+	if(!desc)
+		return -EINVAL;
 	
-	if(!desc || !maxim_extra || maxim_extra->port >= N_PORTS)
+	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
+	if(!maxim_extra || maxim_extra->port >= N_PORTS)
 		return -EINVAL;
 
 	maxim_extra->mask = (uint32_t)(1UL << desc->number);
 	maxim_extra->func = GPIO_FUNC_OUT;
 	GPIO_Config(maxim_extra);
-	
+
 	if(value == 0)
 		GPIO_OutClr(maxim_extra);
 	else
@@ -75,8 +87,11 @@ int32_t gpio_direction_output(struct gpio_desc *desc, uint8_t value)
 
 int32_t gpio_get_direction(struct gpio_desc *desc, uint8_t *direction)
 {
+	if(!desc)
+		return -EINVAL;
+
 	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
-	if(!desc || !maxim_extra)
+	if(!maxim_extra)
 		return -EINVAL;
 	
 	if(maxim_extra->func == GPIO_FUNC_OUT)
@@ -85,18 +100,20 @@ int32_t gpio_get_direction(struct gpio_desc *desc, uint8_t *direction)
 		*direction = GPIO_IN;
 	else
 		return -EINVAL;
-	
+
 	return 0;
 }
 
-int32_t gpio_set_value(struct gpio_desc *desc, uint32_t value)
+int32_t gpio_set_value(struct gpio_desc *desc, uint8_t value)
 {
-	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
-	
+
 	if(!desc)
 		return -EINVAL;
 
-	switch(value){
+	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
+	mxc_gpio_regs_t *gpio_regs = MXC_GPIO_GET_GPIO(maxim_extra->port);
+	
+	switch(value) {
 	case GPIO_LOW:
 		GPIO_OutSet(maxim_extra);
 		break;
@@ -104,8 +121,7 @@ int32_t gpio_set_value(struct gpio_desc *desc, uint32_t value)
 		GPIO_OutClr(maxim_extra);
 		break;
 	case GPIO_HIGH_Z:
-		mxc_gpio_regs_t *gpio_regs = MXC_GPIO_GET_GPIO(maxim_extra->port);
-		gpio_regs->en &= ~desc->mask;
+		gpio_regs->en &= ~maxim_extra->mask;
 		break;
 	default:
 		return -EINVAL;
@@ -113,23 +129,26 @@ int32_t gpio_set_value(struct gpio_desc *desc, uint32_t value)
 	return 0;
 }
 
-int32_t gpio_get_value(struct gpio_desc *desc, uint32_t *value)
+int32_t gpio_get_value(struct gpio_desc *desc, uint8_t *value)
 {
-	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
-	if(!desc || maxim_extra)
+	if(!desc)
 		return -EINVAL;
 	
+	gpio_cfg_t *maxim_extra = (gpio_cfg_t *)desc->extra;
+	if(maxim_extra)
+		return -EINVAL;
+
 	if(maxim_extra->func == GPIO_FUNC_IN)
 		*value = GPIO_InGet(maxim_extra);
 	else if(maxim_extra->func == GPIO_FUNC_OUT)
 		*value = GPIO_OutGet(maxim_extra);
 	else
 		return -EINVAL;
-	
+
 	return 0;
 }
 
-gpio_platform_ops = {
+struct gpio_platform_ops gpio_ops = {
 	.gpio_ops_get = &gpio_get,
 	.gpio_ops_get_optional = &gpio_get_optional,
 	.gpio_ops_remove = &gpio_remove,
